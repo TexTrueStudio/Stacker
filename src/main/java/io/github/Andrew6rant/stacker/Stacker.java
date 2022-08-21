@@ -4,13 +4,14 @@ import io.github.Andrew6rant.stacker.mixin.ItemAccess;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
-import net.fabricmc.api.ModInitializer;
+//import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.item.Item;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,11 +21,14 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static net.minecraft.util.registry.Registry.ITEM_KEY;
-
+@Mod(Stacker.MODID)
 public class Stacker implements ModInitializer {
+//public class Stacker {
 	private static final Logger LOGGER = LogManager.getLogger("Stacker");
+	public static final String MODID = "stacker";
 	private static Stacker stacker;
 	static ConfigHolder<StackerConfig> stackerConfig;
+
 
 	@Override
 	public void onInitialize() {
@@ -35,7 +39,9 @@ public class Stacker implements ModInitializer {
 			return ActionResult.success(true);
 		});
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> loadStacker("load"));
-		ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> loadStacker("reload"));
+		ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> {
+			loadStacker("reload");
+		});
 	}
 	public static void loadStacker(String configMsg) {
 		LOGGER.info("Stacker: Attempting to "+configMsg+" config...");

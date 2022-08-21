@@ -1,18 +1,20 @@
 package io.github.Andrew6rant.stacker.mixin;
 
 import io.github.Andrew6rant.stacker.Stacker;
-import io.github.Andrew6rant.stacker.StackerConfig;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.item.Item;
-import org.apache.commons.lang3.Validate;
+//import io.github.Andrew6rant.stacker.StackerConfig;
+//import net.fabricmc.api.EnvType;
+//import net.fabricmc.api.Environment;
+//import net.minecraft.item.Item;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+//import org.apache.commons.lang3.Validate;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyVariable;
+//import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Environment(EnvType.CLIENT)
+@OnlyIn(Dist.CLIENT)
 @Pseudo
 @Mixin(targets = "net.devtech.stacc.ItemCountRenderHandler")
 public class ItemRenderScaleMixin {
