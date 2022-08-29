@@ -1,5 +1,6 @@
 package io.github.Andrew6rant.stacker;
 
+/*
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import io.github.Andrew6rant.stacker.StackerConfig;
@@ -14,3 +15,4 @@ public class StackerModMenu implements ModMenuApi {
         return parent -> AutoConfig.getConfigScreen(StackerConfig.class, parent).get();
     }
 }
+*/
