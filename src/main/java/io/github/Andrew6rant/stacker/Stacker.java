@@ -35,7 +35,7 @@ public class Stacker implements ModInitializer {
 			return ActionResult.success(true);
 		});
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> loadStacker("load"));
-		ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> loadStacker("reload"));
+		//ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> loadStacker("reload"));
 
 	}
 	public static void loadStacker(String configMsg) {
