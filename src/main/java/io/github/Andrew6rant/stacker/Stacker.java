@@ -4,13 +4,19 @@ import io.github.Andrew6rant.stacker.mixin.ItemAccess;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
-import net.fabricmc.api.ModInitializer;
+//import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.item.Item;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.fml.IExtensionPoint;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.network.NetworkConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,14 +26,22 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static net.minecraft.util.registry.Registry.ITEM_KEY;
-
-public class Stacker implements ModInitializer {
+@Mod(Stacker.MODID)
+public class Stacker {
+	public static final String MODID = "stacker";
 	private static final Logger LOGGER = LogManager.getLogger("Stacker");
 	private static Stacker stacker;
 	static ConfigHolder<StackerConfig> stackerConfig;
 
-	@Override
-	public void onInitialize() {
+	public Stacker() {
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onInitialize);
+
+		ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (a, b) -> true));
+
+	}
+
+	//@Override
+	public void onInitialize(final FMLCommonSetupEvent event) {
 		stacker = this;
 		stackerConfig = AutoConfig.register(StackerConfig.class, GsonConfigSerializer::new);
 		stackerConfig.registerSaveListener((configHolder, stackerConfig1) -> {
@@ -35,7 +49,7 @@ public class Stacker implements ModInitializer {
 			return ActionResult.success(true);
 		});
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> loadStacker("load"));
-		//ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> loadStacker("reload"));
+		ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> loadStacker("reload"));
 
 	}
 	public static void loadStacker(String configMsg) {

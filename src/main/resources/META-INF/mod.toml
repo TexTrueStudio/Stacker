@@ -1,0 +1,14 @@
+modLoader="javafml"
+loaderVersion="[39,)"
+license="CC0-1.0"
+
+[[mods]]
+modId="bsvsb"
+version="${version}"
+displayName="Stacker"
+logoFile="icon.png"
+description='''
+Change the stack size of all items!
+'''
+credits="Andrew6rant (Andrew Grant),TexTrue"
+authors="TexTrueStudio"
