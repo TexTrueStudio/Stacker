@@ -3,7 +3,7 @@ loaderVersion="[39,)"
 license="CC0-1.0"
 
 [[mods]]
-modId="bsvsb"
+modId="stacker"
 version="${version}"
 displayName="Stacker"
 logoFile="icon.png"
@@ -12,3 +12,17 @@ Change the stack size of all items!
 '''
 credits="Andrew6rant (Andrew Grant),TexTrue"
 authors="TexTrueStudio"
+
+[[dependencies.stacker]]
+modId="forge" #mandatory
+mandatory=true #mandatory
+versionRange="[40,)" #mandatory
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.stacker]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.19,)"
+ordering="NONE"
+side="BOTH"

@@ -1,4 +1,5 @@
 package io.github.Andrew6rant.stacker.util;
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
