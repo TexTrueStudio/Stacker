@@ -12,11 +12,11 @@ import net.minecraftforge.network.NetworkConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(Stacc.MODID)
+@Mod(Stacker.MODID)
 public class Stacc {
 
     public static Logger LOGGER = LogManager.getLogger("Stacc Core");
-    public static final String MODID = Stacker.MODID;
+    //public static final String MODID = Stacker.MODID;
 
     public static boolean fastbenchLoaded;
 

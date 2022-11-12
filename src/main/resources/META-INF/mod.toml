@@ -5,7 +5,7 @@ license="CC0-1.0"
 [[mods]]
 modId="stacker"
 version="${version}"
-displayName="Stacker"
+displayName="Stacker-Forge"
 logoFile="icon.png"
 description='''
 Change the stack size of all items!
