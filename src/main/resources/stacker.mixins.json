@@ -13,12 +13,23 @@
     "JukeboxBlockMixin",
     "LimitFurnaceStackMixin",
     "MilkBucketItemMixin",
-    "StewItemMixin"
+    "StewItemMixin",
+    "stacc.BundleItemMixin",
+    "stacc.ClearCommandBugFixin",
+    "stacc.ClearCommandBugFixin$InventoriesFixin",
+    "stacc.CraftingInventoryMixin_LimitStackSize",
+    "stacc.CreativeDesyncFixin",
+    "stacc.DesktopHandSplayedDuplicationFixin",
+    "stacc.DesyncFixin",
+    "stacc.InventoryMixin",
+    "stacc.OOMFixin",
+    "stacc.PlayerInventoryMixin",
+    "stacc.SerializationFixin"
   ],
   "client": [
-    "ItemRenderScaleMixin"
+    "ItemRenderScaleMixin",
+    "stacc.RenderItemCountFixin"
   ],
-  "server": [],
   "injectors": {
     "defaultRequire": 1
   }

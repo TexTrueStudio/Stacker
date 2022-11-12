@@ -5,13 +5,12 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 //import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fakefabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import io.github.Andrew6rant.stacker.api.fabricapi.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.item.Item;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -26,7 +25,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static net.minecraft.util.registry.Registry.ITEM_KEY;
 @Mod(Stacker.MODID)
 public class Stacker {
 	public static final String MODID = "stacker";
@@ -52,6 +50,7 @@ public class Stacker {
 
 		ServerLifecycleEvents.SERVER_STARTED.register(server -> loadStacker("load"));
 		ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> loadStacker("reload"));
+
 
 	}
 	public static void loadStacker(String configMsg) {
@@ -105,7 +104,7 @@ public class Stacker {
 				if (isValid(overrideEntry, splitEntry, invalidSet)) {
 					List<TagKey<Item>> itemStream = item.getRegistryEntry().streamTags().collect(Collectors.toList());
 					for (TagKey<Item> tagKey : itemStream) {
-						if (item.getRegistryEntry().isIn(TagKey.of(ITEM_KEY, new Identifier(splitEntry[0], splitEntry[1])))) {
+						if (item.getRegistryEntry().isIn(TagKey.of(Registry.ITEM_KEY, new Identifier(splitEntry[0], splitEntry[1])))) {
 							return Integer.parseInt(splitEntry[2]);
 						}
 					}

@@ -15,8 +15,8 @@ group = project.maven_group
 loom {
 	forge {
 		mixinConfigs = [
-				"stacker.mixins.json",
-				"stacc.mixin.json"
+				"stacker.mixins.json"//,
+				//"stacc.mixin.json"
 		]
 	}
 }

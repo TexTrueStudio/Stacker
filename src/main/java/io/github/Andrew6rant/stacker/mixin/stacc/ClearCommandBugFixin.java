@@ -1,20 +1,19 @@
-package net.devtech.stacc.mixin;
+package io.github.Andrew6rant.stacker.mixin.stacc;
 
-import java.util.Collection;
-import java.util.function.Predicate;
-
-import net.devtech.stacc.StaccGlobals;
+import io.github.Andrew6rant.stacker.api.stacc.StaccGlobals;
+import net.minecraft.inventory.Inventories;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.command.ClearCommand;
+import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.minecraft.inventory.Inventories;
-import net.minecraft.item.ItemStack;
-import net.minecraft.server.command.ClearCommand;
-import net.minecraft.server.command.ServerCommandSource;
-import net.minecraft.server.network.ServerPlayerEntity;
+import java.util.Collection;
+import java.util.function.Predicate;
 
 @Mixin (ClearCommand.class)
 public class ClearCommandBugFixin {

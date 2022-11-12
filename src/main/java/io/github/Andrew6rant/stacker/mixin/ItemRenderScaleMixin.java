@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @OnlyIn(Dist.CLIENT)
 @Pseudo
-@Mixin(targets = "net.devtech.stacc.ItemCountRenderHandler")
+@Mixin(targets = "io.github.Andrew6rant.stacker.api.stacc.ItemCountRenderHandler")
 public class ItemRenderScaleMixin {
     @Inject(method = "scale", at = @At("RETURN"), cancellable = true, remap = false)
     private void forceScale(CallbackInfoReturnable<Float> cir) {

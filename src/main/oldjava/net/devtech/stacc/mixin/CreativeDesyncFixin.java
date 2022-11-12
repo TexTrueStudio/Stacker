@@ -1,6 +1,6 @@
 package net.devtech.stacc.mixin;
 
-import net.devtech.stacc.StaccGlobals;
+import io.github.Andrew6rant.stacker.api.stacc.StaccGlobals;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;

@@ -1,10 +1,9 @@
-package net.devtech.stacc.mixin;
+package io.github.Andrew6rant.stacker.mixin.stacc;
 
-import net.devtech.stacc.StaccGlobals;
+import io.github.Andrew6rant.stacker.api.stacc.StaccGlobals;
+import net.minecraft.inventory.Inventory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
-
-import net.minecraft.inventory.Inventory;
 
 /**
  * makes inventories able to store infinite items, so u can actually store superstacks
