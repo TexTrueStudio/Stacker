@@ -22,14 +22,6 @@ loom {
 }
 
 repositories {
-	maven {
-		name = "Curse Maven"
-		url = "https://cursemaven.com"
-		content {
-			includeGroup "curse.maven"
-		}
-	}
-	maven { url = "https://storage.googleapis.com/devan-maven/" }
 	maven { url = "https://maven.shedaniel.me/" }
 }
 
