@@ -21,8 +21,8 @@ import net.minecraft.server.MinecraftServer;
 //import net.minecraft.server.PlayerManager;
 //import net.minecraft.server.network.ServerPlayerEntity;
 
-import net.fabricmc.fabric.api.event.Event;
-import net.fabricmc.fabric.api.event.EventFactory;
+import io.github.Andrew6rant.stacker.api.fabricapi.event.Event;
+import io.github.Andrew6rant.stacker.api.fabricapi.event.EventFactory;
 
 public final class ServerLifecycleEvents {
     private ServerLifecycleEvents() {
