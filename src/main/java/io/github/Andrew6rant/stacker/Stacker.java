@@ -11,6 +11,9 @@ import net.minecraft.tag.TagKey;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraftforge.eventbus.EventBus;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.EventListenerHelper;
 import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -48,8 +51,8 @@ public class Stacker {
 			return ActionResult.success(true);
 		});
 
-		ServerLifecycleEvents.SERVER_STARTED.register(server -> loadStacker("load"));
-		ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> loadStacker("reload"));
+		//ServerLifecycleEvents.SERVER_STARTED.register(server -> loadStacker("load"));
+		//ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> loadStacker("reload"));
 	}
 	public static void loadStacker(String configMsg) {
 		LOGGER.info("Stacker: Attempting to "+configMsg+" config...");
@@ -100,7 +103,7 @@ public class Stacker {
 			if (overrideEntry.startsWith("#")) {
 				String[] splitEntry = overrideEntry.trim().substring(1).split(":"); // split into three parts: tag id, item name, max count
 				if (isValid(overrideEntry, splitEntry, invalidSet)) {
-					List<TagKey<Item>> itemStream = item.getRegistryEntry().streamTags().collect(Collectors.toList());
+					List<TagKey<Item>> itemStream = item.getRegistryEntry().streamTags().toList();
 					for (TagKey<Item> tagKey : itemStream) {
 						if (item.getRegistryEntry().isIn(TagKey.of(Registry.ITEM_KEY, new Identifier(splitEntry[0], splitEntry[1])))) {
 							return Integer.parseInt(splitEntry[2]);
